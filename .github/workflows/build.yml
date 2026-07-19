@@ -90,11 +90,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        arch:
-          - x86_64
-        branch:
-          - openwrt-24.10
-          - SNAPSHOT
+        include:
+          - arch: x86_64
+            sdk_tag: 24.10.6
+            os_ver: "24.10"
+          - arch: x86_64
+            sdk_tag: 25.12.5
+            os_ver: "25.12"
 
     steps:
       - name: Checkout repository
